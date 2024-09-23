@@ -1,16 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { SizeController } from './size/size.controller';
-import { SizeService } from './size/size.service';
+import { SizeController } from './size/controller/size.controller';
+import { SizeService } from './size/service/size.service';
 import { MaterialService } from './material/material.service';
 import { MaterialController } from './material/material.controller';
-import { ColorController } from './color/color.controller';
-import { ColorService } from './color/color.service';
-import { ThemeController } from './theme/theme.controller';
-import { ThemeService } from './theme/theme.service';
+import { ThemeController } from './theme/controller/theme.controller';
+import { ThemeService } from './theme/service/theme.service';
 
 @Module({
-  controllers: [SizeController, MaterialController, ColorController, ThemeController],
-  providers: [SizeService, MaterialService, ColorService, ThemeService]
+  controllers: [SizeController, MaterialController, ThemeController],
+  providers: [SizeService, MaterialService, ThemeService],
 })
 export class ProductModule {}
