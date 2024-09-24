@@ -1,15 +1,15 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreateColorDto {
+export class CreateMaterialDto {
   @IsNotEmpty()
   @IsNumber()
   readonly id: number;
 
   @IsNotEmpty()
   @IsString()
-  readonly hexa_rgb: string;
+  readonly name: string;
 
   @IsNotEmpty()
-  @IsString()
-  readonly name: string;
+  @IsNumber()
+  readonly price: number;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IColor } from 'src/database/interface/color.interface';
 import { CreateColorDto } from 'src/database/dto/color.dto';
-import { ColorRepository } from 'src/database/repositories/color.repositorie';
+import { ColorRepository } from 'src/database/repositories/color.repository';
 
 @Injectable()
 export class ColorService {
@@ -18,6 +18,4 @@ export class ColorService {
   async getAllColors(): Promise<IColor[]> {
     return this.colorRepository.findAll();
   }
-}
-{
 }

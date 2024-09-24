@@ -2,10 +2,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 
-export type ColorDocument = Color & Document;
+export type MaterialDocument = Material & Document;
 
 @Schema()
-export class Color {
+export class Material {
   @Prop({ required: true })
   @ApiProperty({
     title: 'ID',
@@ -14,15 +14,15 @@ export class Color {
 
   @Prop({ required: true })
   @ApiProperty({
-    title: 'Hexa_RGB',
-  })
-  hexa_rgb: string;
-
-  @Prop({ required: true })
-  @ApiProperty({
     title: 'Name',
   })
   name: string;
+
+  @Prop({ required: true })
+  @ApiProperty({
+    title: 'Price',
+  })
+  price: number;
 }
 
-export const ColorSchema = SchemaFactory.createForClass(Color);
+export const MaterialSchema = SchemaFactory.createForClass(Material);
