@@ -8,8 +8,8 @@ export class ColorController {
   constructor(private readonly ColorService: ColorService) {}
 
   @Post()
-  async createColor(@Body() CreateColorDto: CreateColorDto): Promise<IColor> {
-    return await this.ColorService.create(CreateColorDto);
+  async createColor(@Body() createColorDto: CreateColorDto): Promise<IColor> {
+    return await this.ColorService.create(createColorDto);
   }
 
   @Get('ViewAllColors')

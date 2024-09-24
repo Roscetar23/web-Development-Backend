@@ -1,5 +1,6 @@
 export default () => {
   return {
-    //Aqui ira la conexión
+    PORT: parseInt(process.env.PORT) || 3000,
+    MONGODB_CONNECTION: process.env.MONGODB_CONNECTION,
   };
 };
