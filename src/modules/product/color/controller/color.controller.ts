@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Post, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Req,
+} from '@nestjs/common';
 import { ColorService } from '../service/color.service';
 import { CreateColorDto } from 'src/database/dto/color.dto';
 import { IColor } from 'src/database/interface/color.interface';
@@ -18,9 +26,7 @@ export class ColorController {
   }
 
   @Delete('DeleteColor')
-  async DeleateColor(@Req() req): Promise<IColor> {
-    const { id } = req.id;
-    const DeleateColor = await this.ColorService.deleteColor(id);
+  async DeleateColor(@Body('id') id: number): Promise<IColor> {
     return await this.ColorService.deleteColor(id);
   }
 }

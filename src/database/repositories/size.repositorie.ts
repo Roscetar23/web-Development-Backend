@@ -16,8 +16,8 @@ export class SizeRepository {
     return createdSize.save();
   }
 
-  async delete(id: string): Promise<ISize> {
-    return await this.sizeModel.findByIdAndDelete({ id });
+  async delete(id: number): Promise<ISize> {
+    return await this.sizeModel.findOneAndDelete({ id });
   }
 
   async findAll(): Promise<ISize[]> {

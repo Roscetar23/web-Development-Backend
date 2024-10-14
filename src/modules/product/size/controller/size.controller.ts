@@ -17,9 +17,7 @@ export class SizeController {
     return await this.sizeService.getAllSizes();
   }
   @Delete('DeleteSize')
-  async DeleateSyze(@Req() req): Promise<ISize> {
-    const { id } = req.id;
-    const deleteSyze = await this.sizeService.deleteSize(id);
+  async DeleteSyze(@Body('id') id: number): Promise<ISize> {
     return await this.sizeService.deleteSize(id);
   }
 }

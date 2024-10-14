@@ -16,8 +16,8 @@ export class ColorRepository {
     return createdColor.save();
   }
 
-  async delete(id: string): Promise<IColor> {
-    return await this.colorModel.findByIdAndDelete({ id });
+  async delete(id: number): Promise<IColor> {
+    return await this.colorModel.findOneAndDelete({ id });
   }
 
   async findAll(): Promise<IColor[]> {

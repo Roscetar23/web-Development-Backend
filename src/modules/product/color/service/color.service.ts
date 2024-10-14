@@ -11,7 +11,7 @@ export class ColorService {
     return this.colorRepository.create(createColorDto);
   }
 
-  async deleteColor(id: string): Promise<IColor> {
+  async deleteColor(id: number): Promise<IColor> {
     return await this.colorRepository.delete(id);
   }
 

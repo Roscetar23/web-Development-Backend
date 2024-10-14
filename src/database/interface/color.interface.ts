@@ -1,5 +1,5 @@
 export interface IColor {
-  id?: number;
+  id: number;
   hexa_rgb: String;
   name: String;
 }

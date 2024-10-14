@@ -10,7 +10,7 @@ export class MaterialService {
   async create(createMaterialDto: CreateMaterialDto): Promise<IMaterial> {
     return this.materialRepository.create(createMaterialDto);
   }
-  async deleteMaterial(id: string): Promise<IMaterial> {
+  async deleteMaterial(id: number): Promise<IMaterial> {
     return await this.materialRepository.delete(id);
   }
 

@@ -1,5 +1,5 @@
 export interface IMaterial {
-  id?: number;
+  id: number;
   name: string;
   price: number;
 }

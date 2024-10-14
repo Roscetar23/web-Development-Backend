@@ -11,7 +11,7 @@ export class SizeService {
     return this.SizeRepository.create(createSizeDto);
   }
 
-  async deleteSize(id: string): Promise<ISize> {
+  async deleteSize(id: number): Promise<ISize> {
     return await this.SizeRepository.delete(id);
   }
 
