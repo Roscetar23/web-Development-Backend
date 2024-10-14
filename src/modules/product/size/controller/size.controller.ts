@@ -1,36 +1,25 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Req } from '@nestjs/common';
 import { SizeService } from '../service/size.service';
-import { Size } from '../size.entity';
+import { CreateSizeDto } from 'src/database/dto/size.dto';
+import { ISize } from 'src/database/interface/size.interface';
 
 @Controller('size')
 export class SizeController {
+  constructor(private readonly sizeService: SizeService) {}
 
-    constructor(private readonly sizeService: SizeService){
+  @Post()
+  async createSize(@Body() createSizeDto: CreateSizeDto): Promise<ISize> {
+    return await this.sizeService.create(createSizeDto);
+  }
 
-    }
-    @Get()
-    getSizes(): Size[]{
-        return this.sizeService.getSizes();
-    }
-
-    @Get(':id')
-    getSize(@Param('id') id:string): Size{
-        return this.sizeService.getSize(parseInt(id));
-    }
-
-    @Post()
-    createSize(@Body() body) : void{
-        this.sizeService.createSize(body.num);
-    }
-    
-    @Patch(':id')
-    updateSize(@Param('id') id:string, @Body() body): Size{
-        return this.sizeService.updateSize(parseInt(id), body.num);
-    }
-
-    @Delete(':id')
-    deleteSize(@Param('id') id:string): void{
-        this.sizeService.removeSize(parseInt(id));
-    }
+  @Get('ViewAllSizes')
+  async getAllSizes(): Promise<ISize[]> {
+    return await this.sizeService.getAllSizes();
+  }
+  @Delete('DeleteSize')
+  async DeleateSyze(@Req() req): Promise<ISize> {
+    const { id } = req.id;
+    const deleteSyze = await this.sizeService.deleteSize(id);
+    return await this.sizeService.deleteSize(id);
+  }
 }
-
