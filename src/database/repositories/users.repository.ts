@@ -24,4 +24,7 @@ export class UsersRepository {
   async deleateUser(nameUser: string): Promise<UsersDocument> {
     return await this.usersModel.findOneAndDelete({ nameUser });
   }
+  async findAll(): Promise<UserInterface[]> {
+    return this.usersModel.find().exec();
+  }
 }

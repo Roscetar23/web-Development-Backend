@@ -17,6 +17,10 @@ import { UsersSchema, Users } from 'src/database/schema/users.schema';
 import { UsersController } from './users/controller/users.controller';
 import { UsersRepository } from 'src/database/repositories/users.repository';
 import { usersService } from './users/service/users.service';
+import { Theme, ThemeSchema } from 'src/database/schema/theme.schema';
+import { ThemeController } from './theme/controller/theme.controller';
+import { ThemeService } from './theme/service/theme.service';
+import { ThemeRepository } from 'src/database/repositories/theme.repository';
 
 @Module({
   imports: [
@@ -25,7 +29,7 @@ import { usersService } from './users/service/users.service';
       { name: Material.name, schema: MaterialSchema },
     ]),
     MongooseModule.forFeature([{ name: Size.name, schema: SizeSchema }]),
-
+    MongooseModule.forFeature([{ name: Theme.name, schema: ThemeSchema }]),
     MongooseModule.forFeature([{ name: Users.name, schema: UsersSchema }]),
   ],
 
@@ -34,16 +38,19 @@ import { usersService } from './users/service/users.service';
     SizeController,
     MaterialController,
     UsersController,
+    ThemeController,
   ],
   providers: [
     ColorService,
     SizeService,
     MaterialService,
     usersService,
+    ThemeService,
     ColorRepository,
     MaterialRepository,
     SizeRepository,
     UsersRepository,
+    ThemeRepository,
   ],
 })
 export class ProductModule {}

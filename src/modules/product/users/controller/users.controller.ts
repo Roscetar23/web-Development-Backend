@@ -32,4 +32,8 @@ export class UsersController {
   ): Promise<UserInterface> {
     return await this.usersService.deleteUsers(nameUser);
   }
+  @Get('ViewAllUsers')
+  async getAllUsers(): Promise<UserInterface[]> {
+    return await this.usersService.getAllUsers();
+  }
 }

@@ -29,4 +29,7 @@ export class usersService {
   async deleteUsers(nameUser: string): Promise<UserInterface> {
     return await this.UsersRepository.deleateUser(nameUser);
   }
+  async getAllUsers(): Promise<UserInterface[]> {
+    return this.UsersRepository.findAll();
+  }
 }
